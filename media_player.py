@@ -147,7 +147,7 @@ async def async_setup_platform(
     discovery_info: DiscoveryInfoType | None = None,
 ) -> None:
     """Set up the universal media players."""
-    await async_setup_reload_service(hass, "universal", ["media_player"])
+    await async_setup_reload_service(hass, "ha_ump_fix", ["media_player"])
 
     player = UniversalMediaPlayer(hass, config)
     async_add_entities([player])

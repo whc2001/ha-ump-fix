@@ -1,5 +1,5 @@
 {
-  "domain": "ha-ump-fix",
+  "domain": "ha_ump_fix",
   "name": "Universal media player (with argument fix for play_media)",
   "version": "0.0.0",
   "codeowners": [],
