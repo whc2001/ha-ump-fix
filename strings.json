@@ -1,0 +1,8 @@
+{
+  "services": {
+    "reload": {
+      "name": "[%key:common::action::reload%]",
+      "description": "Reloads ha-ump-fix media players from the YAML-configuration."
+    }
+  }
+}

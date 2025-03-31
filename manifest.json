@@ -1,0 +1,9 @@
+{
+  "domain": "ha-ump-fix",
+  "name": "Universal media player (with argument fix for play_media)",
+  "version": "0.0.0",
+  "codeowners": [],
+  "documentation": "https://github.com/whc2001/ha-ump-fix",
+  "issue_tracker": "https://github.com/whc2001/ha-ump-fix/issues",
+  "iot_class": "calculated"
+}
