@@ -8,6 +8,8 @@ media_player:
     unique_id: testmediaplayer
     name: TestMediaPlayer
     device_class: speaker
+    can_announce: true
+    can_enqueue: true
     commands:
       play_media:
         action: system_log.write

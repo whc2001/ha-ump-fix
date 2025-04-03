@@ -104,6 +104,8 @@ CONF_ATTRS = "attributes"
 CONF_CHILDREN = "children"
 CONF_COMMANDS = "commands"
 CONF_BROWSE_MEDIA_ENTITY = "browse_media_entity"
+CONF_CAN_ANNOUNCE = "can_announce"
+CONF_CAN_ENQUEUE = "can_enqueue"
 
 STATES_ORDER = [
     STATE_UNKNOWN,
@@ -135,6 +137,8 @@ PLATFORM_SCHEMA = MEDIA_PLAYER_PLATFORM_SCHEMA.extend(
         vol.Optional(CONF_DEVICE_CLASS): DEVICE_CLASSES_SCHEMA,
         vol.Optional(CONF_ACTIVE_CHILD_TEMPLATE): cv.template,
         vol.Optional(CONF_STATE_TEMPLATE): cv.template,
+        vol.Optional(CONF_CAN_ANNOUNCE, default=False): cv.boolean,
+        vol.Optional(CONF_CAN_ENQUEUE, default=False): cv.boolean,
     },
     extra=vol.REMOVE_EXTRA,
 )
@@ -182,6 +186,8 @@ class UniversalMediaPlayer(MediaPlayerEntity):
         self._attr_device_class = config.get(CONF_DEVICE_CLASS)
         self._attr_unique_id = config.get(CONF_UNIQUE_ID)
         self._browse_media_entity = config.get(CONF_BROWSE_MEDIA_ENTITY)
+        self._can_announce = config.get(CONF_CAN_ANNOUNCE)
+        self._can_enqueue = config.get(CONF_CAN_ENQUEUE)
 
     async def async_added_to_hass(self) -> None:
         """Subscribe to children and template state changes."""
@@ -532,6 +538,12 @@ class UniversalMediaPlayer(MediaPlayerEntity):
             and ATTR_SOUND_MODE_LIST in self._attrs
         ):
             flags |= MediaPlayerEntityFeature.SELECT_SOUND_MODE
+
+        if self._can_announce:
+            flags |= MediaPlayerEntityFeature.MEDIA_ANNOUNCE
+
+        if self._can_enqueue:
+            flags |= MediaPlayerEntityFeature.MEDIA_ENQUEUE
 
         return flags
 

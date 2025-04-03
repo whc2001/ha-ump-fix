@@ -1,7 +1,7 @@
 {
   "domain": "ha_ump_fix",
   "name": "Universal media player (with argument fix for play_media)",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "codeowners": [],
   "documentation": "https://github.com/whc2001/ha-ump-fix",
   "issue_tracker": "https://github.com/whc2001/ha-ump-fix/issues",
